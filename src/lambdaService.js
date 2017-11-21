@@ -8,7 +8,9 @@
  */
 function LambdaService(krakenHttpClient, dataFormatter, s3Service) {
     /** Prevent usage without "new" operator. If it happens, "this" points to the global object. */
-    assert((this instanceof LambdaService), 'LambdaService constructor called without "new" operator');
+    if (!(this instanceof LambdaService)) {
+        throw new Error('LambdaService constructor called without "new" operator');
+    }
 
     /** @type {KrakenHttpClient} */
     this.krakenHttpClient = krakenHttpClient;

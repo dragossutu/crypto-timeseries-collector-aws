@@ -6,7 +6,7 @@
  */
 function KrakenHttpClient(https) {
     /** Prevent usage without "new" operator. If it happens, "this" points to the global object. */
-    if (this instanceof KrakenHttpClient) {
+    if (!(this instanceof KrakenHttpClient)) {
         throw new Error('KrakenHttpClient constructor called without "new" operator');
     }
 

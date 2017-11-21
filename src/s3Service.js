@@ -5,7 +5,7 @@
  */
 function S3Service(awsSdk) {
     /** Prevent usage without "new" operator. If it happens, "this" points to the global object. */
-    if (this instanceof S3Service) {
+    if (!(this instanceof S3Service)) {
         throw new Error('S3Service constructor called without "new" operator');
     }
 
