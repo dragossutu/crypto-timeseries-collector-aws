@@ -47,8 +47,8 @@ function buildS3Key(filePrefix) {
 
     keyParts.push(filePrefix);
     keyParts.push(date.getUTCFullYear());
-    keyParts.push(date.getUTCMonth());
-    keyParts.push(date.getUTCDay());
+    keyParts.push(date.getUTCMonth() + 1);
+    keyParts.push(date.getUTCDate());
     keyParts.push(date.getUTCHours());
     keyParts.push(date.getUTCMinutes());
     keyParts.push(date.getUTCSeconds());
