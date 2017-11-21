@@ -1,2 +1,4 @@
 .idea
 .terraform
+dist
+node_modules
