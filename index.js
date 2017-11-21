@@ -2,10 +2,10 @@
 
 const https = require('https');
 const awsSdk = require('aws-sdk');
-const krakenHttpClientFactory = require('./krakenHttpClient');
-const dataFormatterFactory = require('./dataFormatter');
-const s3ServiceFactory = require('./s3Service');
-const lambdaServiceFactory = require('./lambdaService');
+const krakenHttpClientFactory = require('./src/krakenHttpClient');
+const dataFormatterFactory = require('./src/dataFormatter');
+const s3ServiceFactory = require('./src/s3Service');
+const lambdaServiceFactory = require('./src/lambdaService');
 
 const krakenHttpClient = krakenHttpClientFactory(https);
 const dataFormatter = dataFormatterFactory();
