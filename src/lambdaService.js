@@ -29,17 +29,15 @@ function LambdaService(krakenHttpClient, dataFormatter, s3Service) {
 LambdaService.prototype.run = function (pair, bucket) {
     const self = this;
 
-    self.krakenHttpClient.fetchData(pair, function (err, data) {
-        if (null !== err) {
-            console.log(err);
-            return;
+    self.krakenHttpClient.fetchData(pair, function (error, data) {
+        if (error) {
+            return console.log(error);
         }
 
         self.dataFormatter.formatToCSV(data, function (csvData) {
-            self.s3Service.saveToS3Bucket(bucket, pair, csvData, function (err, data) {
-                if (null !== err) {
-                    console.log(err);
-                    return;
+            self.s3Service.saveToS3Bucket(bucket, pair, csvData, function (error, data) {
+                if (error) {
+                    return console.log(error);
                 }
 
                 console.log(data);
