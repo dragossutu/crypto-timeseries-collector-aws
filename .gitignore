@@ -1,4 +1,5 @@
 .idea
 .terraform
+*.tfstate*
 dist
 node_modules
