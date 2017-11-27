@@ -18,19 +18,14 @@ const resultKeyNameMap = {
 };
 
 /**
- * @param {string} url
+ * @param {string} krakenHostname
  * @param {string} pair
  * @param {Function} callback
  */
-KrakenHttpClient.prototype.fetchData = function (url, pair, callback) {
-    const options = {
-        hostname: url,
-        port: 443,
-        path: '/0/public/OHLC?pair=' + pair + '&since=1510000000',
-        method: 'GET'
-    };
+KrakenHttpClient.prototype.fetchData = function (krakenHostname, pair, callback) {
+    const url = krakenHostname + '/0/public/OHLC?pair=' + pair;
 
-    this.https.request(options, response => {
+    this.https.get(url, response => {
         let responseDataString = '';
 
         response.on('data', dataPart => {
