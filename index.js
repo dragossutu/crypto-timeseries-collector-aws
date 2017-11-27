@@ -12,9 +12,10 @@ const dataFormatter = dataFormatterFactory();
 const s3Service = s3ServiceFactory(awsSdk);
 const lambdaService = lambdaServiceFactory(krakenHttpClient, dataFormatter, s3Service);
 
+const url = 'api.kraken.com';
 const pair = process.env.CURRENCY_PAIR;
 const bucket = process.env.S3_BUCKET;
 
 exports.handler = (event, context) => {
-    lambdaService.run(pair, bucket);
+    lambdaService.run(url, pair, bucket);
 };

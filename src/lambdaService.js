@@ -23,13 +23,14 @@ function LambdaService(krakenHttpClient, dataFormatter, s3Service) {
 }
 
 /**
+ * @param {string} url
  * @param {string} pair
  * @param {string} bucket
  */
-LambdaService.prototype.run = function (pair, bucket) {
+LambdaService.prototype.run = function (url, pair, bucket) {
     const self = this;
 
-    self.krakenHttpClient.fetchData(pair, (error, data) => {
+    self.krakenHttpClient.fetchData(url, pair, (error, data) => {
         if (error) {
             return console.log(error);
         }

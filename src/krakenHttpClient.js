@@ -18,12 +18,13 @@ const resultKeyNameMap = {
 };
 
 /**
+ * @param {string} url
  * @param {string} pair
  * @param {Function} callback
  */
-KrakenHttpClient.prototype.fetchData = function (pair, callback) {
+KrakenHttpClient.prototype.fetchData = function (url, pair, callback) {
     const options = {
-        hostname: 'api.kraken.com',
+        hostname: url,
         port: 443,
         path: '/0/public/OHLC?pair=' + pair + '&since=1510000000',
         method: 'GET'
