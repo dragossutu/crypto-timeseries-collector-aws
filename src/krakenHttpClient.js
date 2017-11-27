@@ -34,7 +34,7 @@ KrakenHttpClient.prototype.fetchData = function (krakenHostname, pair, callback)
             const responseDataJson = JSON.parse(responseDataString);
             if (Array.isArray(responseDataJson.error) && responseDataJson.error.length > 0) {
                 callback({
-                    'requestOptions': options,
+                    'requestUrl': url,
                     'response': responseDataJson
                 });
             } else {
