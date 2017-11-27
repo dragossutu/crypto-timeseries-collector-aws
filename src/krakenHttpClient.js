@@ -29,12 +29,12 @@ KrakenHttpClient.prototype.fetchData = function (pair, callback) {
         method: 'GET'
     };
 
-    this.https.request(options, (res) => {
+    this.https.request(options, response => {
         let responseDataString = '';
 
-        res.on('data', (dataPart) => {
+        response.on('data', dataPart => {
             responseDataString += dataPart;
-        }).on('end', function () {
+        }).on('end', () => {
             const responseDataJson = JSON.parse(responseDataString);
             if (Array.isArray(responseDataJson.error) && responseDataJson.error.length > 0) {
                 callback({

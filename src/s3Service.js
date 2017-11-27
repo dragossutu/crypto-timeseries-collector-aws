@@ -28,7 +28,7 @@ S3Service.prototype.saveToS3Bucket = function (bucket, filePrefix, data, callbac
         Key : key
     };
 
-    s3.putObject(params, function(err, data) {
+    s3.putObject(params, (err, data) => {
         if (err) {
             callback(err);
         } else {
